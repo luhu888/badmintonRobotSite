@@ -13,8 +13,10 @@ Including another URLconf
     1. Import the include() function: from django.urls import include, path
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
+from django.conf.urls import url
 from django.contrib import admin
 from django.urls import path, include
+
 
 """
     函数 include() 允许引用其它 URLconfs。每当 Django 遇到 :func：~django.urls.include 时，
@@ -23,4 +25,5 @@ from django.urls import path, include
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('polls/', include('polls.urls')),
+    path('test/', include('rest_framework_test.urls'))
 ]

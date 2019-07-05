@@ -1,0 +1,9 @@
+{% extends "admin/base.html" %}
+
+{% block title %}{{ title }} | {{ badmintonRobotSite|default:_('badmintonRobotSite site admin') }}{% endblock %}
+
+{% block branding %}
+<h1 id="site-name"><a href="{% url 'admin:index' %}">{{ site_header|default:_('Polls Administration') }}</a></h1>
+{% endblock %}
+<h3>自定义模板</h3>
+{% block nav-global %}{% endblock %}
