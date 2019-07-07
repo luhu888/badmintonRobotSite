@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 # __author__=luhu
-
+from django_filters import rest_framework as filters
 from rest_framework import serializers
 from .models import Student, JoinActivity, Activity, User
 
@@ -28,3 +28,10 @@ class ActivityJoinSerializers(serializers.ModelSerializer):
     class Meta:
         model = JoinActivity
         fields = ('activity_number', 'user_id')
+
+
+
+
+
+
+
