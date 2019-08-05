@@ -20,6 +20,8 @@ route = routers.DefaultRouter()
 
 # 注册上一级的路由地址并添加
 urlpatterns = [
-    path('badminton/', views.search_activity),
+    path('search_activity/', views.search_activity),
+    path('join_activity/', views.join_activity),
+    path('cancel_activity/', views.cancel_activity),
     # path('badminton/login/', obtain_jwt_token),
 ]
