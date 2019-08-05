@@ -16,6 +16,8 @@ def search_activity(request):
         data['list'] = json.loads(serializers.serialize("json", activity))
         # print(data['list'])
         return HttpResponse(data['list'])
+    else:
+        return HttpResponse('method not allowed')
 
 
 def join_activity(request):
@@ -40,6 +42,8 @@ def join_activity(request):
             return HttpResponse("repeat")
         else:
             return HttpResponse("not found")
+    else:
+        return HttpResponse('method not allowed')
 
 
 def cancel_activity(request):
@@ -53,7 +57,6 @@ def cancel_activity(request):
         is_join = models.JoinActivity.objects.filter(Q(activity_number=activity_num) & Q(user_id=user_id))
         print(is_activity.count(), is_join.count())
         if (is_join.count() > 0) & (is_activity.count() > 0):  # 活动存在可报名并且报名了
-            # is_join = models.JoinActivity.objects.filter(Q(activity_number=activity_num) & Q(user_id=user_id))
             models.JoinActivity.objects.get(Q(activity_number=activity_num) & Q(user_id=user_id)).delete()
             data = {}
             activity = models.JoinActivity.objects.filter(activity_number=activity_num)
@@ -64,4 +67,5 @@ def cancel_activity(request):
             return HttpResponse('Not Join')
         else:
             return HttpResponse('Not Found')
-
+    else:
+        return HttpResponse('method not allowed')
