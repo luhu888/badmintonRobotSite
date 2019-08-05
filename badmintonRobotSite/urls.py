@@ -25,5 +25,6 @@ from django.urls import path, include
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('polls/', include('polls.urls')),
-    path('test/', include('rest_framework_test.urls'))
+    path('test/', include('rest_framework_test.urls')),
+    path('api/', include('bad_robot.urls')),
 ]
