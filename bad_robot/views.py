@@ -29,8 +29,8 @@ def join_activity(request):
         print(user_id, activity_num)
         is_activity = models.Activity.objects.filter(Q(activity_number=activity_num) & Q(is_join=1))
         is_join = models.JoinActivity.objects.filter(Q(activity_number=activity_num) & Q(user_id=user_id))
-        print(is_join.count())
-        if is_join.count() == 0 & is_activity.count() != 0:  # 活动存在可报名并且没有报名
+        print(is_join.count(), is_activity.count())
+        if (is_join.count() == 0) & (is_activity.count() != 0):  # 活动存在可报名并且没有报名
             join = JoinActivity(activity_number=activity_num, user_id=user_id)
             join.save()
             data = {}
